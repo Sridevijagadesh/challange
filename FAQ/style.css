@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: aqua;
+}
+section{
+  min-height: 100vh;
+  padding-top: 100px;
+}
+.container{
+  max-width: 540px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0,20px,0,20px;
+}
+h1{
+  font-size: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  }
+  .accordion {
+    max-width: 700px;
+    margin: auto;
+  }
+  .accordion_item{
+    border: 1px solid black;
+    padding: 20px;
+    
+  }
+  .accordion_title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom:30px ;
+  }
+  .accordion_title h3{
+    flex: 1;
+    font-size: 20px;
+  }
+  .accordion_title i{
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .accordion_content{
+    display: none;
+  }
+  .active + .accordion_content{
+    display: block;
+  }

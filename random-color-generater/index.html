@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random color generate</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    } 
+   
+.random-color-generator-container{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.hex-col,.rgb-col{
+   min-height: 100vh;
+   flex: 1;
+}
+.hex-col{
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  justify-content: center;
+  align-items: center;
+}
+.hex-coloe-vaule{
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.hex-col button{
+  padding: 10px;
+  background-color: goldenrod;
+  font-size: 18px;
+  border: none;
+  margin-bottom: 20px;
+}
+.rgb-col{
+  display: flex;
+  flex-direction: column;
+  
+  
+  background-color: olivedrab;
+  justify-content: center;
+  align-items: center;
+}
+.rgb-col .box{
+ 
+  font-size: 18px;
+  padding: 7px;
+  
+}
+.rgb-btn{
+  padding: 10px;
+  background-color: goldenrod;
+  font-size: 18px;
+  border: none;
+  padding: 10px;
+
+}
+.rgb-color-vaule{
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="random-color-generator-container">
+    <div class="hex-col">
+      <p class="hex-coloe-vaule">#fffff</p>
+      <button class="hex-button">create hex color</button>
+      <button class="click">copy the clickBoard</button>
+    </div>
+    <div class="rgb-col">
+      <div class="box">
+        <p class="rgb-color-vaule">rgb(255,255,255)</p>
+      <label for="red">red</label>
+      <input type="range" minlength="0" max="255" value="0" id="red">
+      </div>
+      <div class="box">
+        <label for="green">green</label>
+        <input type="range" minlength="0" max="255" value="0" id="green">
+        </div>
+      <div class="box">
+      <label for="blue">blue</label>
+      <input type="range" minlength="0" max="255" value="0" id="blue">
+      </div>
+     <button  class="rgb-btn">create rgb color</button>
+    </div>
+  </div>
+  <script>
+    const hexBtn = document.querySelector('.hex-button')
+    const value = document.querySelector('.hex-coloe-vaule')
+    const container = document.querySelector('.hex-col')
+    const hexVaule = document.querySelector('.click')
+ hexBtn.addEventListener('click',()=>{
+
+  let letter = '0123456789ABCDEF';
+  let result ='';
+   const Random =[Math.floor( Math.random()*16)]
+  for(let i=0 ;i<6 ;i++){
+    result+= letter.charAt(Math.floor( Math.random()*16));
+  };
+  // console.log(result)
+  value.innerHTML=`#${result}`
+  container.style.backgroundColor =`#${result}`
+  hexBtn.style.color  =`#${result}`
+  
+
+ })
+
+ function clickHexVaule(){
+  navigator.clipboard.writeText(hexBtn.style.color )
+  console.log(value.textContent)
+  alert('hex vaule is copied')
+ }
+
+ hexVaule.addEventListener('click',clickHexVaule)
+// backgrouund color into rgb
+
+const rbg = document.querySelector('.rgb-btn')
+
+rbg.addEventListener('click',()=>{
+const getRedVaule = document.querySelector('#red').value
+const getGreenVaule = document.querySelector('#green').value
+const getBuleVaule = document.querySelector('#blue').value
+const container1 = document.querySelector('.rgb-col')
+const rbgVaule = document.querySelector('.rgb-color-vaule')
+console.log('addede')
+
+
+
+//  let extractRedvalue = getRedVaule.value 
+//  let extractGreenvalue = getGreenVaule.value 
+//  let extractBulevalue = getBuleVaule.value 
+
+//  console.log(extractBulevalue,extractGreenvalue,extractRedvalue)
+rbgVaule.innerHTML = `rgb(${getRedVaule},${getGreenVaule},${getBuleVaule})`
+
+ container1.style.backgroundColor=`rgb(${getRedVaule},${getGreenVaule},${getBuleVaule})`
+//  rbg.style.color=`rgb(${extractRedvalue},${extractGreenvalue},${extractBulevalue}`
+})
+  </script>
+</body>
+</html>

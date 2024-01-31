@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>star rating</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  .container{
+    position: absolute;
+    top: 150px;
+    left: 350px;
+  }
+  .star-rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .fa-star-o::before{
+    content: '\f006';
+    font-size: 50px;
+  }
+  .select{
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+  }
+  .fa-star:hover{
+    cursor: pointer;
+  }
+  .fa-star::before{
+    content: '\f006';
+    color: yellow;
+    font-size: 50px;
+  }
+</style>
+<body>
+  <div class="container">
+    <h1>start rating  component</h1>
+    <div class="star-rating">
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+    </div>
+    <div class="select">
+        <p>selected rating vaule is :</p>
+        <p class="selected">0</p>
+      </div>
+  </div>
+  <script>
+    const star = document.querySelectorAll('.fa-star-o')
+    const rating = document.querySelector('.selected')
+
+    let currentStar= -1
+
+
+    star.forEach((starItem , index)=>{
+       starItem.dataset.rating = index +1;
+        starItem.addEventListener('mouseover',handleMouseOver)
+        starItem.addEventListener('click',handleClickOver)
+      starItem.addEventListener('mouseleave',handleMouseleave)
+ 
+       
+    })
+
+       function handleMouseOver(event){
+    const currentRatingVaule = event.target.dataset.rating
+    if(!currentRatingVaule)return
+    else handleUpdateRating(currentRatingVaule)
+
+ }
+ function handleUpdateRating(getCurrentVaule){
+  for(let i =0; i<5; i++){
+    if(i<getCurrentVaule){
+      star[i].classList.replace('fa-star-o' , 'fa-star')
+    }else{
+      star[i].classList.replace('fa-star' , 'fa-star-o')
+    }
+  }
+ }
+       function handleClickOver(event){
+        const currentRatingVaule = event.target.dataset.rating;
+        currentStar = currentRatingVaule;
+        handleUpdateRating(currentStar)
+        rating.innerHTML = currentStar
+
+       }
+       function handleMouseleave(){
+         handleUpdateRating(currentStar)
+       }
+
+  </script>
+  
+</body>
+</html>

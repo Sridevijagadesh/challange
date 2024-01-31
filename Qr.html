@@ -69,6 +69,79 @@
   </div>
 </div>
   </div>
-  
+  <script>
+    
+ 
+  const creatHelloWorld = function (){
+    return function (...args){
+    return 'hello World';
+
+}
+  }
+//   creatHelloWorld()
+//      console.log(creatHelloWorld);
+
+
+//      let a = function(n){
+//       return function(){
+//         return
+//       };
+//      };
+//  const b = a(10)
+//  b()
+//  b()
+//  console.log(b)
+
+
+// var expect = function(val) {
+//  return {
+//      toBe: (v)=>{
+//          if(v===val){
+//              return true;
+//          }else{
+//              throw new Error('Not Equal')
+//          }
+//      },
+//      notToBe: (v)=>{
+//          if(v!==val){
+//              return true;
+//          }else{
+//              throw new Error('Equal')
+//          }
+//      }
+//  }
+// }
+// const expected = expect(5)
+// expected.toBe(5);
+// expected.notToBe(5)
+// console.log(expected)
+
+// function arrya(arr){
+//   let result = [];
+//   for(let i = 0; i<=arr.length; i++){
+//     const add = arr[i]
+//     result.push(add+1)
+//     return result;
+//   }
+// }
+function arrya (arr){
+  let result = [];
+  for(let i = 0;i<arr.length;i++){
+    const add = arr[i];
+    result.push(add+1)
+
+  }
+  return result
+}
+console.log(arrya([1,2,3]))
+
+const funnNumber = (array)=>{
+  for (let i= 0; i<array.length; i++){
+    if(i===3)return array[i]
+  }
+}
+const num = [1 ,2 , 7 ,4,5]
+console.log(funnNumber(num))
+  </script>
 </body>
 </html>

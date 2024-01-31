@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <input type="text" id=date onkeypress="findingAge()">  
+    <p></p>
+<script>
+  function findingAge(){
+    let date = new Date( document.querySelector('#date').value)
+    let day = date.getDate();
+    let mounth = date.getMonth();
+    let year = date.getFullYear();
+    
+    let today = new Date()
+    let day1 = today.getDate();
+    let mounth2 = today.getMonth();
+    let year3 = today.getFullYear();
+
+    let calculation = 0;
+    if(mounth2> mounth ){
+    calculation = year3 -year
+    }else if(mounth2 = mounth ){
+      if(mounth2> mounth ){
+    calculation = year3 -year
+    }else{
+      calculation = year3 -year  -1;
+    }
+    }else{
+      calculation = year3 -year  -1;
+    }
+    // else{
+    //   calculation = year3 -year -1;
+    // }
+   document.querySelector('p').innerHTML =calculation
+  }
+  const a = new Date()
+</script>
+
+</body>
+
+</html>
