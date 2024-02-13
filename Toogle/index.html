@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --bg-color: red;
+      --text-color: gray;
+    }
+    [data-theme  = 'dark']{
+      --bg-color: gray;
+      --text-color: red;
+    
+    }
+    [data-theme  = 'bule']{
+      --bg-color: pink;
+      --text-color: red;
+    
+    }
+
+    body{
+      background-color: var(--bg-color);
+    }
+    /* body.light{
+      background-color: pink;
+    }
+    body.dark{
+      background-color: burlywood;
+    } */
+    .container{
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+    }
+   .container .change-btn .light{
+    padding: 10px;
+    background-color: red;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+   }
+   .container .change-btn .dark{
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    color: black;
+    font-size: 18px;
+   }
+  </style>
+</head>
+<body >
+  <div class="container">
+    <h1>light and dark toogle</h1>
+    <button class="change-btn light">change Theme</button>
+  </div>
+  <script>
+const changeBtn = document.querySelector('.change-btn')
+const body = document.querySelector('body');
+
+
+changeBtn.addEventListener('click', ()=>{
+if( body.getAttribute('data-theme') === 'dark'){
+  body.setAttribute('data-theme' ,'bule')
+}
+else{
+  body.setAttribute('data-theme' ,'dark')
+}
+})
+
+// changeBtn.addEventListener('click' ,()=>{
+//   if(body.classList.contains('light')){
+//      body.classList.remove('light')
+//      body.classList.add('dark')
+//   }
+// })
+  </script>
+</body>
+</html>
