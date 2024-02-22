@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+body{
+  text-align: center;
+}
+.button-wrapper{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 15px;
+}
+.button-wrapper .button{
+  padding: 5px 15px;
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-style: italic;
+}
+.button-wrapper .button.active{
+  background-color: black;
+}
+.content{
+  display: none;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: bold;
+}
+.content.active{
+  display: block;
+}
+.js-button{
+  color: blueviolet;
+  background-color: aqua;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+}
+.is-active{
+  background-color: red;
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <h1>custom tabs</h1>
+  <div class="container">
+    <div class="button-wrapper">
+      <button data-id="home" class="button active">home</button>
+      <button  data-id="about" class="button ">about</button>
+      <button  data-id="contact" class="button ">contact</button>
+      <button data-id="service" class="button ">service</button>
+      <button data-id="project" class="button ">project</button>
+    </div>
+    <div class="content-wrapper">
+      <p id ="home"class="content active">this is home section</p>
+      <p id ="about"class="content ">this is about section</p>
+      <p id ="contact"class="content ">this is contact section</p>
+      <p id ="service"class="content ">this is service section</p>
+      <p id ="project"class="content ">this is project section</p>
+ 
+    </div>
+  </div>
+
+  <p>subscribed</p>
+  <!-- <button onclick="
+  button();
+  // const element =  document.querySelector('.js-button')
+  // if(element.innerHTML==='subscribe'){
+  //   element.innerHTML = 'subscribed'
+  //   element.classList.add('is-active')
+  // }else{
+  //   element.innerHTML='subscribe'
+  //   element.classList.remove('is-active')
+  // }
+  "class="js-button">subscribe</button> -->
+  <button class="js-button">subscribe</button>
+  <script>
+    const tabcontainer = document.querySelector('.container')
+    const tabButton = document.querySelectorAll('.button');
+    const tabContent = document.querySelectorAll('.content')
+
+  tabcontainer.addEventListener('click',(event)=>{
+   const dataSetElement = event.target.dataset.id
+     if(dataSetElement){
+      tabButton.forEach((btn)=>{
+     btn.classList.remove('active')
+      })
+      event.target.classList.add('active')
+
+      tabContent.forEach((btn)=>{
+        btn.classList.remove('active')
+      })
+      const currentId = document.getElementById(dataSetElement)
+      currentId.classList.add('active')
+    }
+      
+  })
+function button(){
+  const buttonElement = document.querySelector('.js-button')
+  buttonElement.forEach((button)=>{
+     button.classList.remove('is-active')
+  })
+  button.classList.add('is-active')
+}
+  </script>
+</body>
+</html>
