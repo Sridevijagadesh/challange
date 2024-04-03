@@ -14,7 +14,7 @@ nextBtn.addEventListener('click',()=>{
   hadleclickevent()
 })
 prevBtn.addEventListener('click',()=>{
-  console.log('added')
+
   if(currentStep > 1){
     currentStep--
   }
@@ -41,4 +41,6 @@ function hadleclickevent(){
     prevBtn.disabled = false
     nextBtn.disabled = false
   }
+  console.log(currentStep)
+  console.log(iconWrapper.length)
 }

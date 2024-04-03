@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scroll Indicate</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+    body{
+      padding: 0px 25px;
+    }
+    .top_section{
+     position: fixed;
+     top: 0px;
+     z-index: 1;
+     width: 100%;
+     background-color: antiquewhite;
+     padding: 10px;
+    }
+    .top_section h1{
+      text-align: center;
+}
+.progress-container{
+  width: 100%;
+  height: 10px;
+  background-color: aquamarine;
+}
+.progress-bar{
+  height: 10px;
+  background-color: black;
+  width: 0%;
+  position: absolute;
+  top: 47px;
+}
+.posts-container{
+  margin: 40px auto 0px auto;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.post-itrm-wrapper{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid black;
+  background: linear-gradient(90deg, rgb(22, 59, 19), rgba(0, 255, 204, 0.586))
+}
+
+  </style>
+</head>
+<body>
+  <div class="top_section">
+<h1>Scroll Indicate</h1>
+<div class="progress-container"></div>
+<div class="progress-bar"></div>
+  </div>
+  <div class="posts-container"></div>
+  <script src="scroll.js"></script>
+</body>
+</html>
