@@ -91,7 +91,7 @@ cards.forEach(item=>{
   const isShowFilter = currentButton.toLowerCase()==='all';
   const isItemFilter = !item.classList.contains(currentButton)
   console.log(isItemFilter)
-  console.log(isShowFilter)
+  // console.log(isShowFilter)
 
   if(isItemFilter && !isShowFilter){
     item.classList.add('hide')
